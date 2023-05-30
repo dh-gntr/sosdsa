@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+    class node{
+        public:
+        int value;
+        node* pointer;
+        
+    }; 
+class Queue {
+    
+    node* front;
+    node* back;
+    
+public:
+    Queue() {
+        // Implement the Constructor
+        front = nullptr;
+        back = nullptr;
+        
+    }
+
+    /*----------------- Public Functions of Queue -----------------*/
+
+    bool isEmpty() {
+        // Implement the isEmpty() function
+        if (front == nullptr) {
+          return true;
+        } else {
+          return false;
+        }
+    }
+
+    void enqueue(int data) {
+        // Implement the enqueue() function
+        node* temp;
+        temp->value = data;
+        temp->pointer = nullptr;
+        back = temp;
+        if(front == nullptr)
+        front = temp;
+        
+    }
+
+    int dequeue() {
+        // Implement the dequeue() function
+        if(front == nullptr)
+        return -1;
+        else if(front == back)
+        {
+            int t = front->value;
+            front = nullptr;
+            back = nullptr;
+            return t;
+        } 
+        else
+        {
+            int t = front->value;
+            front = front->pointer;
+            
+            return t;
+        }
+    }
+
+    int front() {
+        // Implement the front() function
+        if(front != nullptr)
+        return front->value;
+        else
+        return -1;
+    }
+};
